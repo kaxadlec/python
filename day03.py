@@ -1,52 +1,43 @@
-## prime number (소수)
+#input 2 numbers
 
-# v0.1
-number = int(input("정수 입력 : "))
-counts = 0
-k= 1
-while k <= number:
-    if number % k == 0:
-        counts = counts + 1
-    k +=1
-if counts == 2:
-    print(f'{number} is prime number')
-else:
-    print(f'{number} is not prime number')
+start = int(input("start number : "))
+end = int(input("end number : "))
+print(start, end)
 
-# v.02
-number = int(input("정수 입력 : "))
-counts = 0
-for k in range(1,number+1,1):
-    if number % k == 0:
-        counts = counts+1
-if counts==2:
-        print(f'{number} is prime number')
-else:
-    print(f'{number} is not prime number')
+start_end = input("start and end number: ").split()
+print(start_end)
+print(int(start_end[0]), int(start_end[1]))
 
-# v0.3
-number = int(input("정수 입력 : "))
-counts = 0
-for k in range(2, number):
-    if number % k ==0:
-        counts = counts + 1
-if counts:   # 0이 아니면
-    print(f'{number} is not prime number')
-else:
-    print(f'{number} is prime number')
+start = int(input("start number : "))
+end = int(input("end number : "))
+print(start, end)
+for k in range(start, end+1):
+    print(k, end=' ')    # 줄바꿈 대신 띄어쓰기
 
-# v0.4
-number = int(input("정수 입력 : "))
-is_prime = True
-for k in range(2, number):
-    if number % k ==0:
-        is_prime = False
-        break
-    # print(k)
-if is_prime:
-    print(f'{number} is prime number')
-else:
-    print(f'{number} is not prime number')
+# 두 수를 받은 다음에 두 수 사이의 소수 출력
+start = int(input("start number : "))
+end = int(input("end number : "))
+
+if end < start:
+    start, end = end, start   # end가 start보다 작으면 두 수 교환해서 코드실행되게끔함.
+for i in range(start, end+1):
+    #is_prime = True
+
+    if i <= 1:
+        continue   # break 쓰면 그냥 빠져나가고 continue 쓰면 다시 위로 올라가서 실행
+    for k in range(2, i):
+        if i % k == 0:
+            #is_prime = False
+            break
+    else:
+        print(i, end = ' ')
+
+
+
+
+
+
+
 
 
 
