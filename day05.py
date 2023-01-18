@@ -18,6 +18,10 @@ def calculate_fee(args)->dict:  # dictionary 이용
             kids+=1
     return{'no_of_people' : len(args), 'no_of_adult' : adults, 'no_of_kid' : kids, 'total_fee' :total}
 
+# print(calculate_fee.__doc__)
+# help(calculate_fee)
+# help(len)
+
 num_of_visitor = int(input('몇 명입니까? '))
 ages= {random.randint(1,60) for i in range(num_of_visitor)}  # dictionary comprehension 시작
 print(ages)
