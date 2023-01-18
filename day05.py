@@ -1,29 +1,49 @@
-#v0.2 dictionary
-import random
-def calculate_fee(args)->dict:  # dictionary 이용
-    """
-    놀이공원 요금 계산 프로그램
-    :param args: ages in list
-    :return: {'no_of_people':전체 인원 수, 'no_of_adult' : 어른 수, 'no_of_kid' : 아이 수, 'total fee' :지불할 총 입장료}
-    """
-    total = 0   #돈 초기화
-    adults=0  # 인원수 초기화
-    kids=0  # 인원수 초기화
-    for age in args:
-        if 19<=age: # adult
-            total = total + 10000
-            adults +=1
-        else:
-            total = total +3000
-            kids+=1
-    return{'no_of_people' : len(args), 'no_of_adult' : adults, 'no_of_kid' : kids, 'total_fee' :total}
+# function is 1st citizen
 
-# print(calculate_fee.__doc__)
-# help(calculate_fee)
-# help(len)
+# def bol4():
+#     print(95)
+# def call_func(f):
+#     """
+#     매개변수로 함수를 넘겨받아 실행
+#     :param f: 매개변수가 함수
+#     :return:
+#     """
+#     f()
+#
+# call_func(bol4) #95 나옴
+# print(type(call_func))
+#
+# def subtract(n1,n2):
+#     print(n1 - n2)
+#
+# def run_func(f,arg1,arg2):
+#     """
+#     함수를 매개변수로 받아
+#     :param f:
+#     :param arg1:
+#     :param arg2:
+#     :return:
+#     """
+#     f(arg1,arg2)
+# run_func(subtract,99,88)
 
-num_of_visitor = int(input('몇 명입니까? '))
-ages= {random.randint(1,60) for i in range(num_of_visitor)}  # dictionary comprehension 시작
-print(ages)
-result = calculate_fee(ages)
-print(f"총 {result['no_of_people']}명 중에 어른 {result['no_of_adult']}명, 아이  {result['no_of_kid']}명 방문하셨습니다.\n총 요금은 {result['total_fee']}원입니다.")
+# def sum_args(*args):
+#     return sum(args)
+#
+# def run_with_postional_args(func,*args):
+#     return func(*args)
+#
+# print(run_with_postional_args(sum_args,1,2,3,4))
+
+def knights(saying):
+    def inner(quote):
+        return f'we are the knights who say: {quote}'
+    return inner(saying)
+print(knights('하하하'))
+def knights2(saying):
+    def inner2():
+        return f'we are the knights who say: {saying}'
+    return inner2
+a=knights2('호호호')
+print(a)
+print(a())
