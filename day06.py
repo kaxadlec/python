@@ -43,3 +43,8 @@ p2 = Pokemon('고라파덕','지우','할퀴기/꼬리흔들기/물대포')
 # p1.info()
 p2.info()
 # print(p1.skills)
+
+class Pikachu(Pokemon):  # inheritance
+    pass
+pi1 = Pikachu('피카츄','의문의 트레이너','전광석화')
+pi1.info()
