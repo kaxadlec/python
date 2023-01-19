@@ -1,32 +1,28 @@
-## 전역변수, 지역변수
-g = 1  # global variable
+## 반복문 활용
+def factorial_iter(n):
+    """
+    반복문을 이용한 팩토리얼 함수
+    :param n: n!
+    :return: integer 팩토리얼 계산 값
+    """
+    result = 1
+    for k in range(1,n+1):
+        result = result * k
+    return result
 
-def print_global():
-    print(g)
+## 재귀함수 (재귀함수 쓰면 반복문을 안 써도 됨)
+def factorial_recu(n):
+    """
+    재귀 함수를 이용한 팩토리얼 함수
+    :param n: n!
+    :return: 자기 자신을 호출 또는 1
+    """
+    if n == 1:
+        return 1  # 끝나는 조건
+    else:
+        return factorial_recu(n-1) * n
 
-print(g)
-print_global()
 
-def print_global():
-    g = 1  # local variable
-    print(g)
-
-print(g)
-print_global()
-
-g=2
-def print_global():
-    print(g)
-
-def change_print_global():
-    global g
-    print(g)
-    g=2
-    print(g)
-
-print(g)
-change_print_global()
-print_global()
-print(globals())  # {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': ~~
-print(__name__)  # __main__
+print(factorial_iter(5))
+print(factorial_recu(5))
 
