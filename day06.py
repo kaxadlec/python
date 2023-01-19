@@ -1,26 +1,32 @@
-# def sub_int(x,y):
-#     return x-y
+## 전역변수, 지역변수
+g = 1  # global variable
 
-# decorator 만듬
-def documnet_info(func):
-    def new_function(*args, **kwargs):
-        print('실행 중인 함수:',func.__name__)
-        print('위치기반 인수들:', args)
-        print('키워드 기반 인수들:',kwargs)
-        result = func(*args,**kwargs)
-        print('실행결과:',result)
-        return result
-    return new_function
+def print_global():
+    print(g)
 
-@documnet_info
-def sub_int(x,y):
-    return x-y
-print(sub_int(7,3))  
+print(g)
+print_global()
 
-# print(sub_int(7,3))  # 4
-# info_sub_int = documnet_info(sub_int)
-# r=info_sub_int(7,3) # 실행 중인 함수: sub_int
-#                     # 위치기반 인수들: (7, 3)
-#                     # 키워드 기반 인수들: {}
-#                     # 실행결과: 4
-# print(r)            # 4
+def print_global():
+    g = 1  # local variable
+    print(g)
+
+print(g)
+print_global()
+
+g=2
+def print_global():
+    print(g)
+
+def change_print_global():
+    global g
+    print(g)
+    g=2
+    print(g)
+
+print(g)
+change_print_global()
+print_global()
+print(globals())  # {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': ~~
+print(__name__)  # __main__
+
