@@ -1,17 +1,31 @@
-class PreetyMixin():
-    # def time_print(self):
-    #     import datetime
-    #     datetime.date.today
-    def dump(self):
-        import pprint
-        pprint.pprint(vars(self))
+class Fruit:
+    color = 'red'
 
-class Thing(PreetyMixin):
-    pass
+blueberry = Fruit()
+print(Fruit.color)
+print(blueberry.color)
 
-t = Thing()
-t.name = "mudryk"
-t.feature = "fw"
-t.age = '20'
-#t.time_print()
-print(t.dump())
+blueberry.color ='blue'
+print(blueberry.color)
+print(Fruit.color)
+
+Fruit.color = 'orange'
+print(Fruit.color)
+print(blueberry.color)
+
+new_fruit = Fruit()
+print(new_fruit.color)
+
+class A():
+    count = 0
+    def __init__(self):
+        A.count = A.count + 1
+    def exclaim(self):
+        print("I'm an A!")
+    @classmethod
+    def kids(cls):
+        print("A has", cls.count, "little objects.")
+
+easy_a=A()
+print(A.kids())
+
